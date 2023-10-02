@@ -11,17 +11,16 @@ public class ApiService {
     private final List<Laptop> laptops = new ArrayList<>();
 
     public boolean addLaptop(Laptop laptop) {
-        // Implement logic to add laptop to the list
         return laptops.add(laptop);
     }
 
-    public Laptop getLaptopById(int laptopId) {
-        // Implement logic to retrieve laptop by ID
-        // Return null if not found
-        return laptops.stream()
-                .filter(laptop -> laptop.getLaptopId() == laptopId)
-                .findFirst()
-                .orElse(null);
+    public Laptop getLaptop(int laptopid) {
+        for (Laptop laptop : laptops) {
+            if (laptop.getLaptopid() == laptopid) {
+                return laptop;
+            }
+        }
+        return null; // Return null if laptop with given ID is not found
     }
 
     public List<Laptop> getAllLaptops() {
